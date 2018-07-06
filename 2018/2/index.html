@@ -17,7 +17,6 @@
     <img src="6.png" width="90%">
     <img src="7.png" width="90%">
 </div>
-
 <div><img id="loading" src="loading.png" width="90%"></div>
 <div style="height: 160px;"></div>
 </body>
@@ -25,17 +24,15 @@
         var imgs = document.getElementsByTagName("img");
         preload(0,imgs);   
         function preload(index,imgs){
-             if(index>=imgs.length-1){
+             if(index>=(imgs.length-1)){
                  var thisNode = document.getElementById("loading");
                  thisNode.parentNode.removeChild(thisNode);
                  return;
              }
              var image = new Image();
              image.onload = function() {
-                 setTimeout(function(){
                   imgs[index].src = image.src;
                   preload(index+1, imgs);
-                 },1000);
              }
              image.src = imgs[index].getAttribute("data-src");
         }
