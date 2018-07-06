@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>将传统融入美国首&nbsp;&nbsp;都独立日游行</title>
+</head>
+<body style="background-color: white">
+<div style="height: 30px;text-align: center;padding-top: 30px;padding-bottom:120px;">
+    <h1 style="font-size: 3em">将传统融入美国&nbsp;&nbsp;首都独立日游行</h1>
+</div>
+<div style="position: relative;top: 0px;text-align: center">
+<div  style="position: absolute;top: 0px;left: 0px;opacity: 0.1;width: 100%;height: 100%;"></div>
+    <img data-src="1.png" width="90%" >
+    <img data-src="2.png" width="90%">
+    <img data-src="3.png" width="90%">
+    <img data-src="4.png" width="90%">
+    <img data-src="5.png" width="90%">
+    <img data-src="6.png" width="90%">
+    <img data-src="7.png" width="90%">
+    <img data-src="8.png" width="90%">
+    <img data-src="9.png" width="90%">
+    <img data-src="91.png" width="90%">
+</div>
+
+<div><img id="loading" src="loading.png" width="90%"></div>
+<div style="height: 160px;"></div>
+</body>
+<script>
+        var imgs = document.getElementsByTagName("img");
+        preload(0,imgs);   
+        function preload(index,imgs){
+             if(index>=imgs.length-1){
+                 var thisNode = document.getElementById("loading");
+                 thisNode.parentNode.removeChild(thisNode);
+                 return;
+             }
+             var image = new Image();
+             image.onload = function() {
+                 imgs[index].src = image.src;
+                 preload(index+1, imgs);
+             }
+             image.src = imgs[index].getAttribute("data-src");
+        }
+     </script>
+</html>
