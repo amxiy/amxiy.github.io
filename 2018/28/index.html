@@ -1,0 +1,58 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>被川普打得很痛！媒体文章标题不许使用一个字眼</title>
+</head>
+<body style="background-color: white;">
+<div style="text-align: center;margin-top: 90px;margin-bottom:50px;padding:11px">
+    <h1 style="font-size: 4em">被川普打得很痛！媒体文章标题不许使用一个字眼</h1>
+</div>
+
+<div style="position: relative;top: 0px;text-align: center"> 
+<div  style="position: absolute;top: 0px;left: 0px;opacity: 0.1;width: 100%;height: 100%;"></div>
+    <img data-src="28/1.png" width="90%" >
+    <img data-src="28/2.png" width="90%">
+    <img data-src="28/3.png" width="90%">
+    <img data-src="28/4.png" width="90%">
+
+</div>
+
+<div style="text-align: center;"><img id="loading" data-src="loading.png" width="90%"></div>
+<div style="height: 160px;"></div>
+</body>
+<script>
+	var imgUrl = "https://mingfei618.gitee.io/wz/";
+	var githubUrl = "amxiy.github.io";
+	var realUrl = window.location.host;
+	var loadingImgNode = document.getElementById("loading");
+	var isGithubPage = false;
+	if(realUrl.indexOf(githubUrl ) != -1  ){
+	    isGithubPage = true;
+	}
+	if(isGithubPage == true){
+		loadingImgNode.src = imgUrl + loadingImgNode.getAttribute("data-src");
+	} else {
+		loadingImgNode.src = "../"+loadingImgNode.getAttribute("data-src");
+	}	
+        var imgs = document.getElementsByTagName("img");
+        preload(0,imgs);   
+
+        function preload(index,imgs){
+             if(index>=imgs.length-1){
+		 loadingImgNode.parentNode.style.display = "none";
+                 return;
+             }
+             var image = new Image();
+             image.onload = function() {
+                 imgs[index].src = image.src;
+                 preload(index+1, imgs);
+             }
+	     if(isGithubPage == true){
+			image.src = imgUrl  + imgs[index].getAttribute("data-src");
+	     } else {
+			image.src = imgs[index].getAttribute("data-src");
+	     }	
+             
+        }
+     </script>
+</html>
