@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>风雨天地行之二&nbsp;&nbsp;（清音）[视频]</title>
+</head>
+<body style="background-color: white;">
+<div style="text-align: center;margin-top: 90px;margin-bottom:50px;padding:11px">
+    <h1 style="font-size: 4em">风雨天地行之二&nbsp;&nbsp;（清音）</h1>
+</div>
+
+<div style="text-align: center;margin-bottom: 20px;">
+<video controls src="https://mingfei618.gitee.io/flgzx/mv/fytdx/2.mp4" style="display: inline-block;width: 90%;" preload="none" poster="video.png"></video>
+</div>
+
+<div style="position: relative;top: 0px;text-align: center"> 
+<div  style="position: absolute;top: 0px;left: 0px;opacity: 0.1;width: 100%;height: 100%;"></div>
+    <img data-src="1.png" width="90%">
+</div>
+
+<div style="margin-top: 20px;">
+    <div style="display: inline-block;width: 5%;height: 1px;"></div> 
+    <a href="../1/index.html" style="font-size: 2.5em;display: inline-block;width: 90%;">上一个视频：风雨天地行之一&nbsp;&nbsp;（荡浊）</a>
+ </div>
+ <div style="margin-top: 20px;">
+    <div style="display: inline-block;width: 5%;height: 1px;"></div> 
+    <a href="../3/index.html" style="font-size: 2.5em;display: inline-block;width: 90%;">下一个视频：风雨天地行之三&nbsp;&nbsp;（风雨）</a>
+ </div>
+
+
+<div style="text-align: center;"><img id="loading" src="loading.png" width="90%"></div>
+<div style="height: 160px;"></div>
+</body>
+<script>
+        var imgs = document.getElementsByTagName("img");
+        preload(0,imgs);   
+        function preload(index,imgs){
+             if(index>=imgs.length-1){
+                 var thisNode = document.getElementById("loading");
+                 thisNode.parentNode.removeChild(thisNode);
+                 return;
+             }
+             var image = new Image();
+             image.onload = function() {
+                 imgs[index].src = image.src;
+                 preload(index+1, imgs);
+             }
+             image.src = imgs[index].getAttribute("data-src");
+        }
+     </script>
+</html>
