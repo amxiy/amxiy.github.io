@@ -1,0 +1,63 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>谷歌的第二次选择让中国人无语</title>
+</head>
+<body style="background-color: white;">
+<div style="text-align: center;margin-top: 90px;margin-bottom:50px;padding:11px">
+    <h1 style="font-size: 4em">颜丹：谷歌的第二次选择让中国人无语</h1>
+</div>
+<div style="position: relative;top: 0px;text-align: center"> 
+<div  style="position: absolute;top: 0px;left: 0px;opacity: 0.1;width: 100%;height: 100%;"></div>
+    <img data-src="1.png" width="96%" >
+    <img data-src="2.png" width="96%">
+    <img data-src="3.png" width="96%">
+    <img data-src="4.png" width="96%" >
+    <img data-src="5.png" width="96%">
+
+</div>
+
+<div style="text-align: center;"><img id="loading" data-src="loading.png" width="96%"></div>
+<div style="height: 160px;"></div>
+</body>
+<script>
+	var imgUrl = "";//"https://amxiy.github.io/2018/28/";   
+	var loadingImgUrl = "https://mingfei618.gitee.io/flgzx/";
+	var githubUrl = "github.io";
+		
+	var realUrl = window.location.host;
+	var isGithubPage = false;
+	if(realUrl.indexOf(githubUrl ) != -1  ){
+	    isGithubPage = true;
+	}   
+
+	var loadingImgNode = document.getElementById("loading");
+	
+	if(isGithubPage == true){
+		loadingImgNode.src = loadingImgUrl + loadingImgNode.getAttribute("data-src");
+	} else {
+		loadingImgNode.src = "../"+loadingImgNode.getAttribute("data-src");
+	}
+
+	var imgs = document.getElementsByTagName("img");
+        preload(0,imgs);   
+
+        function preload(index,imgs){
+             if(index>=imgs.length-1){
+		 loadingImgNode.parentNode.style.display = "none";
+                 return;
+             }
+             var image = new Image();
+             image.onload = function() {
+                 imgs[index].src = image.src;
+                 preload(index+1, imgs);
+             }
+	     if(isGithubPage == true){
+			image.src = imgUrl  + imgs[index].getAttribute("data-src");
+	     } else {
+			image.src = imgs[index].getAttribute("data-src");
+	     }	
+             
+        }
+     </script>
+</html>
